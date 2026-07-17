@@ -128,19 +128,9 @@ if choice == "1. Scraping (Download CSV)":
 elif choice == "2. Load CSV":
     uploaded = st.file_uploader("Upload CSV", type="csv")
 
-   if uploaded is not None:
-
-    if uploaded.name.endswith(".csv"):
+   if uploaded:
         df = pd.read_csv(uploaded)
-
-    elif uploaded.name.endswith(".xlsx"):
-        df = pd.read_excel(uploaded)
-
-    else:
-        st.error("Format file tidak didukung")
-            else:
-                st.error("Format file tidak didukung")
-
+       
         if 'teks' not in df.columns or 'label' not in df.columns:
             st.error("CSV harus ada kolom teks & label")
         else:
