@@ -308,6 +308,7 @@ elif choice == "3. Preprocessing":
             with col2:
                 rata_sebelum = (
                     df['teks']
+                    .fillna("")
                     .astype(str)
                     .apply(lambda x: len(x.split()))
                     .mean()
